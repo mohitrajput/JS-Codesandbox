@@ -1,4 +1,9 @@
-// String
+/*
+-----| String |-----
+*/
+console.log(`
+`);
+console.log("%c String", "font-size:24px; font-weight: 700");
 let theString = "Hello, My name is Mohit Rajput";
 // Methods for String : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2
 
@@ -94,10 +99,8 @@ console.log(`${"  _ Mohit _  ".trim()}`); // _ Mohit _
 console.info(`[@@iterator]()
 Returns a new Iterator object that iterates over the code points of a String value, returning each code point as a String value.
 `);
-
 let iterator = theString[Symbol.iterator]();
 let theChar = iterator.next();
-
 while (!theChar.done && theChar.value !== " ") {
   console.log(theChar.value);
   theChar = iterator.next();
@@ -108,3 +111,68 @@ while (!theChar.done && theChar.value !== " ") {
   //                  "o"
   //                  ","
 }
+
+/*
+-----| Number |-----
+*/
+console.log(`
+`);
+console.log("%c Number", "font-size:24px; font-weight: 700");
+/* Properties
+----------------------
+Number.EPSILON
+    The smallest interval between two representable numbers.
+
+Number.MAX_SAFE_INTEGER
+    The maximum safe integer in JavaScript (253 - 1).
+
+Number.MAX_VALUE
+    The largest positive representable number.
+
+Number.MIN_SAFE_INTEGER
+    The minimum safe integer in JavaScript (-(253 - 1)).
+
+Number.MIN_VALUE
+    The smallest positive representable number - that is, the positive number closest to zero (without actually being zero).
+
+Number.NaN
+    Special "not a number" value.
+
+Number.NEGATIVE_INFINITY
+    Special value representing negative infinity; returned on overflow.
+
+Number.POSITIVE_INFINITY
+    Special value representing infinity; returned on overflow.
+
+Number.prototype
+    Allows the addition of properties to a Number object.
+*/
+
+/* Methods
+---------------------- */
+console.info(`isNaN()
+Determine whether the passed value is NaN. Always use Number.isNaN() not global isNaN()
+moreinfo: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN`);
+console.log(`${isNaN("asdas")}`); //  true
+console.log(`${Number.isNaN("asdas")}`); //  false
+
+console.info(`isFinite()
+Determine whether the passed value is a finite number.`);
+console.log(`${!isFinite(1000 / 0)}`); //  true
+
+console.info(`isInteger()
+Determine whether the passed value is an integer.`);
+console.log(`${Number.isInteger(1.1)} ${Number.isInteger(1)}`); //  false true
+
+console.info(`parseFloat()
+The value is the same as parseFloat() of the global object.`);
+console.log(`${Number.parseFloat("3.15fdfdf5")}`); // 3.15
+
+console.info(`toFixed()
+Returns a string representing the number in fixed-point notation.`);
+console.log(`${(3.25696).toFixed(2)}`); // 3.26 - Note: Number round up
+
+console.info(`toString()
+Returns a string representing the specified object in the specified radix (base). Overrides the Object.prototype.toString() method.`);
+console.log(`${(255).toString()}`); // '255'
+console.log(`${(255).toString(16)}`); // 'ff'
